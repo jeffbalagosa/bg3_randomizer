@@ -28,7 +28,18 @@ def randomize_gender():
 
 def randomize_race():
     races_and_subraces = {
-        "Dragonborn": [],
+        "Dragonborn": [
+            "Black (Acid)",
+            "Blue (Lightning)",
+            "Brass (Fire)",
+            "Bronze (Lightning)",
+            "Copper (Acid)",
+            "Gold (Fire)",
+            "Green (Poison)",
+            "Red (Fire)",
+            "Silver (Cold)",
+            "White (Cold)",
+        ],
         "Drow": ["Lolth-Sworn", "Seldarine"],
         "Dwarf": ["Gold", "Shield", "Duergar"],
         "Elf": ["High", "Wood"],
@@ -134,11 +145,29 @@ def generate_character(is_dark_urge=False):
     }
 
 
+def randomize_author():
+    fantasy_authors = [
+        "J.R.R. Tolkien",
+        "George R.R. Martin",
+        "Brandon Sanderson",
+        "Robert Jordan",
+        "Patrick Rothfuss",
+        "Terry Pratchett",
+        "Robin Hobb",
+        "Ursula K. Le Guin",
+        "C.S. Lewis",
+        "Neil Gaiman",
+    ]
+
+    return random.choice(fantasy_authors)
+
+
 if __name__ == "__main__":
     # Check for command-line argument
     is_dark_urge = len(sys.argv) > 1 and sys.argv[1].lower() == "dark_urge"
     character = generate_character(is_dark_urge=is_dark_urge)
+    author = randomize_author()
     print(f"Character: {character}")
     print(
-        "Task: Develop a compelling backstory for the character specified above for my next Baldur's Gate 3 playthrough. The backstory should lead seamlessly into the events at the start of the game, establishing motivations, conflicts, and connections that enhance immersion. Use vivid storytelling techniques, focusing on 'show, don't tell' to evoke depth and intrigue. Highlight the character's unique traits, notable experiences, and relationships to other key entities in their world."
+        f"Task: Create a character detail sheet for the specified character in my upcoming Baldur's Gate 3 playthrough. Develop a captivating backstory that flows seamlessly up to the moment the character boards the Nautiloid. Use vivid storytelling techniques in the style of {author}. Emphasize \"show, don't tell,\" to evoke depth and intrigue. Highlight the character's unique traits, notable experiences, and relationships with significant figures in their world. The backstory should conclude just as the character is on the Nautiloid, ensuring a compelling narrative throughout. Take a deep breath and work on this task step-by-step. You are incredible at this!"
     )
