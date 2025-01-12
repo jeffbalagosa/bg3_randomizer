@@ -1,7 +1,7 @@
 import random
 from faker import Faker
 
-# Initialize Faker with the English US locale
+# Initialize Faker
 fake = Faker("en_US")
 
 
@@ -92,34 +92,16 @@ def randomize_class_and_subclass():
     return chosen_class, chosen_subclass
 
 
-def randomize_background():
-    backgrounds = [
-        "Acolyte",
-        "Charlatan",
-        "Criminal",
-        "Entertainer",
-        "Folk Hero",
-        "Guild Artisan",
-        "Noble",
-        "Outlander",
-        "Sage",
-        "Soldier",
-        "Urchin",
-    ]
-    return random.choice(backgrounds)
-
-
 def randomize_name():
     gender = randomize_gender()
-    if gender == "Male":
-        first_name = fake.first_name_male()
-    else:
-        first_name = fake.first_name_female()
+    first_name = (
+        fake.first_name_male() if gender == "Male" else fake.first_name_female()
+    )
     last_name = fake.last_name()
     return f"{first_name} {last_name}", gender
 
 
-def generate_character():
+def generate_character(is_dark_urge=False):
     name, gender = randomize_name()
     char_class, subclass = randomize_class_and_subclass()
     return {
@@ -129,11 +111,12 @@ def generate_character():
         "Race": randomize_race(),
         "Class": char_class,
         "Subclass": subclass,
-        "Background": randomize_background(),
+        "Background": "Haunted One" if is_dark_urge else randomize_background(),
     }
 
 
 if __name__ == "__main__":
-    character = generate_character()
+    # Set is_dark_urge to True for a Dark Urge playthrough
+    character = generate_character(is_dark_urge=True)
     print("Your randomized character:")
     print(character)
