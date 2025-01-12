@@ -1,4 +1,5 @@
 import random
+import sys
 from faker import Faker
 
 # Initialize Faker
@@ -101,6 +102,23 @@ def randomize_name():
     return f"{first_name} {last_name}", gender
 
 
+def randomize_background():
+    backgrounds = [
+        "Acolyte",
+        "Charlatan",
+        "Criminal",
+        "Entertainer",
+        "Folk Hero",
+        "Guild Artisan",
+        "Noble",
+        "Outlander",
+        "Sage",
+        "Soldier",
+        "Urchin",
+    ]
+    return random.choice(backgrounds)
+
+
 def generate_character(is_dark_urge=False):
     name, gender = randomize_name()
     char_class, subclass = randomize_class_and_subclass()
@@ -112,11 +130,15 @@ def generate_character(is_dark_urge=False):
         "Class": char_class,
         "Subclass": subclass,
         "Background": "Haunted One" if is_dark_urge else randomize_background(),
+        "Dark Urge": is_dark_urge,
     }
 
 
 if __name__ == "__main__":
-    # Set is_dark_urge to True for a Dark Urge playthrough
-    character = generate_character(is_dark_urge=True)
-    print("Your randomized character:")
-    print(character)
+    # Check for command-line argument
+    is_dark_urge = len(sys.argv) > 1 and sys.argv[1].lower() == "dark_urge"
+    character = generate_character(is_dark_urge=is_dark_urge)
+    print(f"Character: {character}")
+    print(
+        "Task: Develop a compelling backstory for the character specified above for my next Baldur's Gate 3 playthrough. The backstory should lead seamlessly into the events at the start of the game, establishing motivations, conflicts, and connections that enhance immersion. Use vivid storytelling techniques, focusing on 'show, don't tell' to evoke depth and intrigue. Highlight the character's unique traits, notable experiences, and relationships to other key entities in their world."
+    )
