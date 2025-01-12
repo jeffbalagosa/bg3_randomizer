@@ -145,7 +145,7 @@ def generate_character(is_dark_urge=False):
     }
 
 
-def randomize_author():
+def randomize_author(num_authors=1):
     fantasy_authors = [
         "J.R.R. Tolkien",
         "George R.R. Martin",
@@ -159,15 +159,15 @@ def randomize_author():
         "Neil Gaiman",
     ]
 
-    return random.choice(fantasy_authors)
+    return random.sample(fantasy_authors, num_authors)
 
 
 if __name__ == "__main__":
     # Check for command-line argument
     is_dark_urge = len(sys.argv) > 1 and sys.argv[1].lower() == "dark_urge"
     character = generate_character(is_dark_urge=is_dark_urge)
-    author = randomize_author()
+    author = randomize_author(2)
     print(f"Character: {character}")
     print(
-        f"Task: Create a character detail sheet for the specified character in my upcoming Baldur's Gate 3 playthrough. Develop a captivating backstory that flows seamlessly up to the moment the character boards the Nautiloid. Use vivid storytelling techniques in the style of {author}. Emphasize \"show, don't tell,\" to evoke depth and intrigue. Highlight the character's unique traits, notable experiences, and relationships with significant figures in their world. The backstory should conclude just as the character is on the nautiloid, ensuring a compelling narrative throughout. Take a deep breath and work on this task step-by-step. You are incredible at this!"
+        f"Task: Create a character detail sheet for the specified character in my upcoming Baldur's Gate 3 playthrough. Develop a captivating backstory that flows seamlessly up to the moment the character boards the Nautiloid. Use vivid storytelling techniques in a hybrid writing style of {author[0]} and {author[1]}. Emphasize \"show, don't tell,\" to evoke depth and intrigue. Highlight the character's unique traits, notable experiences, and relationships with significant figures in their world. The backstory should conclude just as the character is on the nautiloid, ensuring a compelling narrative throughout. Take a deep breath and work on this task step-by-step. You are incredible at this!"
     )
