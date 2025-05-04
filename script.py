@@ -63,8 +63,8 @@ def randomize_race():
 
 def randomize_class_and_subclass():
     classes_and_subclasses = {
-        "Barbarian": ["Berserker", "Wildheart", "Wild Magic"],
-        "Bard": ["College of Lore", "College of Swords", "College of Valor"],
+        "Barbarian": ["Berserker", "Wildheart", "Wild Magic", "Path of Giants"],
+        "Bard": ["College of Lore", "College of Swords", "College of Valor", "College of Glamour"],
         "Cleric": [
             "Knowledge Domain",
             "Life Domain",
@@ -73,20 +73,22 @@ def randomize_class_and_subclass():
             "Tempest Domain",
             "Trickery Domain",
             "War Domain",
+            "Death Domain",
         ],
-        "Druid": ["Circle of the Land", "Circle of the Moon", "Circle of Spores"],
-        "Fighter": ["Battle Master", "Champion", "Eldritch Knight"],
-        "Monk": ["Way of the Four Elements", "Way of the Open Hand", "Way of Shadow"],
+        "Druid": ["Circle of the Land", "Circle of the Moon", "Circle of Spores", "Circle of Stars"],
+        "Fighter": ["Battle Master", "Champion", "Eldritch Knight", "Arcane Archer"],
+        "Monk": ["Way of the Four Elements", "Way of the Open Hand", "Way of Shadow", "Way of the Drunken Master"],
         "Paladin": [
             "Oath of the Ancients",
             "Oath of Devotion",
             "Oath of Vengeance",
             "Oathbreaker",
+            "Oath of the Crown",
         ],
-        "Ranger": ["Beast Master", "Gloom Stalker", "Hunter"],
-        "Rogue": ["Arcane Trickster", "Assassin", "Thief"],
-        "Sorcerer": ["Draconic Bloodline", "Storm Sorcery", "Wild Magic"],
-        "Warlock": ["The Archfey", "The Fiend", "The Great Old One"],
+        "Ranger": ["Beast Master", "Gloom Stalker", "Hunter", "Swarmkeeper"],
+        "Rogue": ["Arcane Trickster", "Assassin", "Thief", "Swashbuckler"],
+        "Sorcerer": ["Draconic Bloodline", "Storm Sorcery", "Wild Magic", "Shadow Magic"],
+        "Warlock": ["The Archfey", "The Fiend", "The Great Old One", "Hexblade"],
         "Wizard": [
             "School of Abjuration",
             "School of Conjuration",
@@ -96,6 +98,7 @@ def randomize_class_and_subclass():
             "School of Illusion",
             "School of Necromancy",
             "School of Transmutation",
+            "Bladesinging",
         ],
     }
 
